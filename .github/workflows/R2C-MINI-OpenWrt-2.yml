@@ -8,8 +8,6 @@ on:
       - 'PATCH/**'
       - 'SCRIPTS/**'
       - 'SEED/**'
-jobs:
-  build:
     runs-on: ubuntu-20.04 
     - name: Checkout
       uses: actions/checkout@v2.4.0

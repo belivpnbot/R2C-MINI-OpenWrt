@@ -1,6 +1,5 @@
 name: R2C-MINI-OpenWrt
 on:
-  workflow_dispatch:
     branches: 
       - master
     paths:

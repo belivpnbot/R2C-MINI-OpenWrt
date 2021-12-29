@@ -11,8 +11,14 @@
 name: R2C-MINI-OpenWrt
 
 on:
-  repository_dispatch:
   workflow_dispatch:
+  push:
+    branches: 
+      - master
+    paths:
+      - 'PATCH/**'
+      - 'SCRIPTS/**'
+      - 'SEED/**'
 
 env:
 
@@ -25,23 +31,17 @@ jobs:
 
     steps:
     - name: Preparation for inspection #Checkout
-      uses: actions/checkout@main
-      
-    - uses: haishanh/actions-telegram-notification@v1
-      with:
-         notification-token: ${{ secrets.NOTIFICATION_TOKEN }}
-         job-status: ${{ job.status }}
+      uses: actions/checkout@main  
+    - name: Checkout
+      uses: actions/checkout@v2.4.0
+    - name: Generate Information
+        id: gen_info
     
     - name: TG information notification
       if: env.SERVERCHAN_SCKEY == 'true'
       run: |
         curl -k --data chat_id=${{ secrets.TGID }} --data "text=Master: Compiling a new one for you$RELEASE_TAG-$(date +"%Y.%m.%d-%H%M"),Please wait...... 😋💐" "https://api.telegram.org/bot${{ secrets.TG_TOKEN }}/sendMessage"
         
-    - name: PUSHPLUS information notification
-      if: env.SERVERCHAN_SCKEY == 'false'
-      run: |
-        curl -k --data token="${{ secrets.PUSH_PLUS_TOKEN }}" --data title="Start compiling$RELEASE_TAG-$(date +"%Y.%m.%d-%H%M")" --data "content=🎉 Master: Compiling a new one for you$RELEASE_TAG-$(date +"%Y.%m.%d-%H%M"),Please wait...... 😋💐" "http://www.pushplus.plus/send"
-
 
     - name: Initialization environment
       env:

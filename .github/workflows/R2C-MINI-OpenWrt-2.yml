@@ -8,19 +8,11 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Compile openwrt-R2C
+name: R2C-MINI-OpenWrt
 
 on:
   repository_dispatch:
   workflow_dispatch:
-#    inputs:
-#      ssh:
-#        description: 'SSH connection to Actions'
-#        required: false
-#        default: 'false'
-#Sunday 22 o'clock CN Monday 6 o'clock
-#  schedule:
-#    - cron: 0 22 * * 0
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede

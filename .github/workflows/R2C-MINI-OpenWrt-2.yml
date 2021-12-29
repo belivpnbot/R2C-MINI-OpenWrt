@@ -1,5 +1,4 @@
 name: R2C-MINI-OpenWrt
-on:
     branches: 
       - master
     paths:

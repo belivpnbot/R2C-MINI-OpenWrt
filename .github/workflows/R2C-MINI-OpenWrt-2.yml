@@ -11,17 +11,7 @@
 name: R2C-MINI-OpenWrt
 
 on:
-  workflow_dispatch:
-  push:
-    branches: 
-      - master
-    paths:
-      - 'PATCH/**'
-      - 'SCRIPTS/**'
-      - 'SEED/**'
-
 env:
-
   SERVERCHAN_SCKEY: true
   TZ: Asia/Kuala_Lumpur
 

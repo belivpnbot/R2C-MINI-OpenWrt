@@ -10,7 +10,7 @@ Based on [nicholas-opensource/OpenWrt-Autobuild](https://github.com/nicholas-ope
 
 3. Default user and password: `root` `none`
 
-4. 插件清单：
+4. Plug-in list：
 
     - application：[`SSRPlus`](https://github.com/fw876/helloworld/tree/master)
     

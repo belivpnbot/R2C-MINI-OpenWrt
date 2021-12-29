@@ -8,32 +8,19 @@ on:
       - 'PATCH/**'
       - 'SCRIPTS/**'
       - 'SEED/**'
-#env:
-#  REPO_URL: https://github.com/coolsnowwolf/lede
-#  REPO_BRANCH: master
-#  FEEDS_CONF: feeds.conf.default
-#  CONFIG_FILE: config/nanopi_R2C.v1.config
-#  DIY_P1_SH: diy_script/diy-part_R2C1.sh
-#  DIY_P2_SH: diy_script/diy-part_R2C2.sh
-#  DIY_P3_SH: diy_script/R2C-lean-openwrt.sh
-#  COMMIT_LOG_NUM: 1
-#  RELEASE_TAG: R2C
-#  UPLOAD_BIN_DIR: false
-#  UPLOAD_FIRMWARE: true
-#  UPLOAD_COWTRANSFER: false
-#  UPLOAD_WETRANSFER: false
-#  UPLOAD_RELEASE: true
-#  SERVERCHAN_SCKEY: true
-#  TZ: Asia/Kuala_Lumpur
-
 jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
+    - name: Preparation for inspection #Checkout
+      uses: actions/checkout@main   
+
     - name: Clone Repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@main 
+
     - name: Generate Information
       id: gen_info
+
       env:
         SERVERCHAN_SCKEY: true
         TZ: Asia/Kuala_Lumpur

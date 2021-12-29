@@ -28,14 +28,6 @@ env:
 jobs:
   build:
     runs-on: ubuntu-20.04
-
-    steps:
-    - name: Preparation for inspection #Checkout
-      uses: actions/checkout@main  
-    - name: Checkout
-      uses: actions/checkout@v2.4.0
-    - name: Generate Information
-        id: gen_info
     
     - name: TG information notification
       if: env.SERVERCHAN_SCKEY == 'true'
